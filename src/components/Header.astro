@@ -1,0 +1,41 @@
+---
+import { NAV, SITE } from '../site.js';
+const path = Astro.url.pathname;
+const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+<header class="border-b border-rule bg-cream">
+  <div class="hidden border-b border-rule bg-white/60 sm:block">
+    <div class="wrap flex justify-end gap-6 py-1.5 text-xs text-ink/75">
+      <a href={SITE.phoneHref} class="text-ink/75">{SITE.phone}</a>
+      <a href={`mailto:${SITE.email}`} class="text-ink/75">{SITE.email}</a>
+    </div>
+  </div>
+  <div class="wrap flex items-center justify-between py-5">
+    <a href="/" class="no-underline hover:no-underline" aria-label="MK Appraisals home">
+      <span class="block font-serif text-3xl font-semibold leading-none text-burgundy">MK Appraisals</span>
+      <span class="mt-1 block text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-ink/70">Certified Residential Appraiser</span>
+    </a>
+    <nav class="hidden lg:block" aria-label="Main">
+      <ul class="flex items-center gap-7 text-sm">
+        {NAV.filter((n) => n.href !== '/contact/').map((n) => (
+          <li>
+            <a href={n.href} class={`no-underline ${isActive(n.href) ? 'border-b border-burgundy pb-1 text-burgundy' : 'text-ink hover:text-burgundy'}`}
+               aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</a>
+          </li>
+        ))}
+        <li><a href="/contact/" class="btn !px-4 !py-2">Request a Quote</a></li>
+      </ul>
+    </nav>
+    <details class="relative lg:hidden">
+      <summary class="cursor-pointer list-none border border-burgundy px-3 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-burgundy">Menu</summary>
+      <nav class="absolute right-0 z-20 mt-2 w-60 border border-rule bg-white shadow-sm" aria-label="Mobile">
+        <ul class="divide-y divide-rule text-base">
+          {NAV.map((n) => (
+            <li><a href={n.href} class={`block px-4 py-3 no-underline ${isActive(n.href) ? 'text-burgundy font-semibold' : 'text-ink'}`}>{n.label}</a></li>
+          ))}
+          <li><a href={SITE.phoneHref} class="block px-4 py-3 text-ink no-underline">Call {SITE.phone}</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>

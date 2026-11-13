@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { SITE } from '../site.js';
+---
+<Base
+  title="Request an Appraisal Quote | MK Appraisals, Central Utah"
+  description="Request an appraisal quote from MK Appraisals for property in Sanpete, Millard, Juab, or Sevier County, Utah. Call 435-660-0401 or email mkappraisals@gmail.com."
+>
+  <PageHead
+    eyebrow="Request a Quote"
+    title="Request a quote"
+    intro="Send the property details and what the appraisal is for. I'll reply with a quote and a timeline."
+  />
+
+  <section class="wrap mt-12 grid gap-14 md:grid-cols-[1fr_2fr]">
+    <aside>
+      <p class="eyebrow">Call or email</p>
+      <p class="mt-3 font-serif text-2xl"><a href={SITE.phoneHref}>{SITE.phone}</a></p>
+      <p class="mt-1 break-all"><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+      <hr class="rule my-8" />
+      <p class="eyebrow">Lenders &amp; AMCs</p>
+      <p class="mt-3 text-sm text-ink/85">Lenders and AMCs can order through your usual portal or by email.</p>
+    </aside>
+
+    <form name="quote-request" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" class="space-y-5">
+      <input type="hidden" name="form-name" value="quote-request" />
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required /></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>
+      </div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
+      <div class="field"><label for="property">Property address or town</label><input id="property" name="property" type="text" required /></div>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="field">
+          <label for="county">County</label>
+          <select id="county" name="county" required>
+            <option value="">Select a county</option>
+            <option>Sanpete</option>
+            <option>Millard</option>
+            <option>Juab</option>
+            <option>Sevier</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="purpose">Purpose</label>
+          <select id="purpose" name="purpose" required>
+            <option value="">Select a purpose</option>
+            <option>Refinance or purchase (lender)</option>
+            <option>Estate</option>
+            <option>Divorce</option>
+            <option>Private / other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Property type, acreage, timeline, or anything else I should know."></textarea></div>
+      <button type="submit" class="btn">Send Request</button>
+    </form>
+  </section>
+</Base>

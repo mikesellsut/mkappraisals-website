@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import QuoteCta from '../components/QuoteCta.astro';
+
+const groups = [
+  {
+    t: 'Residential Appraisals',
+    forms: '1004 / URAR · UAD 3.6 and UAD 2.6',
+    d: 'Full interior and exterior appraisals of single-family homes for purchase and refinance lending. I work in both the new UAD 3.6 URAR and the UAD 2.6 forms, depending on what the lender requires.',
+  },
+  {
+    t: 'Land & Vacant Lots',
+    forms: 'Land appraisals',
+    d: 'Building lots, vacant land, and parcels in town or out in the county. Access, utilities, zoning, and topography all get a close look.',
+  },
+  {
+    t: 'FHA Appraisals',
+    forms: 'FHA',
+    d: 'FHA appraisals that cover the HUD property requirements along with the value.',
+  },
+  {
+    t: 'New Construction',
+    forms: 'Plans and specs, proposed and new builds',
+    d: 'Appraisals for homes that are proposed, under construction, or just finished.',
+  },
+  {
+    t: 'Final Inspections & Completion Reports',
+    forms: '1004D',
+    d: 'Completion reports for new construction and repairs, and value updates when a lender needs one.',
+  },
+  {
+    t: 'Manufactured Homes',
+    forms: 'Manufactured housing',
+    d: 'Manufactured homes are built to the federal HUD code and are appraised against other manufactured home sales. Modular homes are built to the same code as a site-built home and are appraised that way. They are not the same thing, and I treat them separately.',
+  },
+  {
+    t: 'Exterior-Only Appraisals',
+    forms: '2055',
+    d: 'Drive-by appraisals when the lender or program allows one.',
+  },
+  {
+    t: 'Rural Acreage & ADUs',
+    forms: 'Acreage, outbuildings, accessory dwelling units',
+    d: 'Homes on acreage, shops and outbuildings, and properties with an accessory dwelling unit. Wells, septic, and access are part of the picture.',
+  },
+  {
+    t: 'Estate, Divorce & Private Appraisals',
+    forms: 'Including retrospective-date appraisals',
+    d: 'Appraisals for estates and trusts, divorce, and private decisions. I can also appraise a property as of a past date, such as a date of death.',
+  },
+];
+---
+<Base
+  title="Appraisal Services | MK Appraisals, Central Utah"
+  description="Residential, land, FHA, new construction, manufactured home, 2055 exterior, 1004D, rural acreage, and estate appraisals in Sanpete, Millard, Juab, and Sevier counties, Utah."
+>
+  <PageHead
+    eyebrow="Services"
+    title="Appraisal services"
+    intro="Lender work, private work, and everything rural in between. If you don't see your property type here, call and ask."
+  />
+
+  <section class="wrap mt-12">
+    <ul class="divide-y divide-rule border-y border-rule">
+      {groups.map((g) => (
+        <li class="grid gap-3 py-8 md:grid-cols-[1fr_2fr] md:gap-10">
+          <div>
+            <h2 class="text-3xl">{g.t}</h2>
+            <p class="mt-1 text-xs font-semibold uppercase tracking-[0.15em] text-ink/60">{g.forms}</p>
+          </div>
+          <p class="max-w-prose text-ink/90">{g.d}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap mt-12">
+    <div class="border-l-2 border-burgundy bg-white/70 px-6 py-5">
+      <p class="eyebrow">A note on water shares</p>
+      <p class="mt-2 max-w-prose text-ink/90">I don't value water shares or water rights. That falls outside the scope of a Utah real estate appraiser's license. If water is part of the deal, it will need to be valued separately.</p>
+    </div>
+  </section>
+
+  <QuoteCta />
+</Base>

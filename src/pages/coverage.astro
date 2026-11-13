@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import QuoteCta from '../components/QuoteCta.astro';
+
+const counties = [
+  { name: 'Sanpete County', towns: 'Mount Pleasant, Ephraim, Manti, Fairview, Gunnison' },
+  { name: 'Millard County', towns: 'Delta, Fillmore, Hinckley' },
+  { name: 'Juab County', towns: 'Nephi, Levan, Mona' },
+  { name: 'Sevier County', towns: 'Richfield, Salina, Monroe' },
+];
+---
+<Base
+  title="Coverage Area | Appraiser for Sanpete, Millard, Juab & Sevier Counties"
+  description="MK Appraisals covers Sanpete, Millard, Juab, and Sevier counties in Central Utah, including Nephi, Delta, Fillmore, Ephraim, Manti, Mount Pleasant, Richfield, and Salina."
+>
+  <PageHead
+    eyebrow="Coverage"
+    title="Where I work"
+    intro="I appraise in four Central Utah counties. The towns below are the main ones. Smaller towns and the county ground around them are covered too."
+  />
+
+  <section class="wrap mt-12">
+    <div class="grid gap-px border border-rule bg-rule sm:grid-cols-2">
+      {counties.map((c) => (
+        <div class="bg-cream p-8">
+          <h2 class="text-3xl">{c.name}</h2>
+          <hr class="rule-short !my-4" />
+          <p class="text-ink/85">{c.towns}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-8 max-w-prose text-ink/85">Not sure if your property is in my area? Send the address and I'll let you know.</p>
+  </section>
+
+  <QuoteCta />
+</Base>

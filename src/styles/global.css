@@ -1,0 +1,39 @@
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/500-italic.css';
+@import '@fontsource/libre-franklin/400.css';
+@import '@fontsource/libre-franklin/500.css';
+@import '@fontsource/libre-franklin/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-cream text-ink font-sans antialiased leading-relaxed; }
+  h1, h2, h3 { @apply font-serif text-burgundy font-semibold tracking-tight; }
+  h1 { @apply text-4xl sm:text-5xl md:text-6xl leading-tight; }
+  h2 { @apply text-3xl sm:text-4xl leading-tight; }
+  h3 { @apply text-2xl leading-snug; }
+  a { @apply text-burgundy underline-offset-4; }
+  a:hover { @apply underline; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-burgundy; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-5xl px-5 sm:px-8; }
+  .eyebrow { @apply font-sans text-xs font-semibold uppercase tracking-[0.2em] text-burgundy; }
+  .rule { @apply border-0 border-t border-rule; }
+  .rule-short { @apply mx-0 my-6 w-16 border-0 border-t-2 border-burgundy; }
+  .lead { @apply text-lg text-ink/85 max-w-prose; }
+  .btn { @apply inline-block border border-burgundy bg-burgundy px-6 py-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-cream no-underline transition-colors; }
+  .btn:hover { @apply bg-burgundy-dark no-underline; }
+  .btn-outline { @apply inline-block border border-burgundy px-6 py-3 font-sans text-sm font-semibold uppercase tracking-[0.12em] text-burgundy no-underline transition-colors; }
+  .btn-outline:hover { @apply bg-burgundy text-cream no-underline; }
+  .field label { @apply mb-1 block text-sm font-medium text-ink; }
+  .field input, .field select, .field textarea {
+    @apply w-full border border-rule bg-white px-3 py-2.5 text-base text-ink focus:border-burgundy focus:outline-none;
+  }
+  .prose-plain p { @apply mb-4 max-w-prose; }
+}

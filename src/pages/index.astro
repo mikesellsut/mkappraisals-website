@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import QuoteCta from '../components/QuoteCta.astro';
+import { SITE } from '../site.js';
+
+const services = [
+  { t: 'Residential Appraisals', d: 'Single-family homes for purchase and refinance lending. UAD 3.6 and 2.6.' },
+  { t: 'Land & Rural Property', d: 'Vacant lots, building lots, and rural acreage.' },
+  { t: 'FHA & New Construction', d: 'FHA appraisals, new builds, and final inspections.' },
+  { t: 'Manufactured Homes', d: 'Appraised against other manufactured home sales.' },
+  { t: 'Estate & Private', d: 'Estate, divorce, and other private appraisals, including retrospective dates.' },
+  { t: 'Exterior-Only', d: 'Drive-by (2055) appraisals when the lender calls for one.' },
+];
+---
+<Base
+  title="MK Appraisals | Certified Residential Appraiser in Central Utah"
+  description="Residential and land appraisals in Sanpete, Millard, Juab, and Sevier counties. Mike Price, Certified Residential Appraiser. Serving Nephi, Delta, Ephraim, Richfield, and nearby towns."
+>
+  <section class="border-b border-rule bg-white/50">
+    <div class="wrap py-20 text-center sm:py-28">
+      <p class="eyebrow">Sanpete · Millard · Juab · Sevier</p>
+      <h1 class="mt-5 text-5xl sm:text-6xl md:text-7xl">MK Appraisals</h1>
+      <div class="mx-auto my-6 flex items-center justify-center gap-4" aria-hidden="true">
+        <span class="h-px w-12 bg-burgundy/60"></span>
+        <span class="h-1.5 w-1.5 rotate-45 bg-burgundy"></span>
+        <span class="h-px w-12 bg-burgundy/60"></span>
+      </div>
+      <p class="font-serif text-2xl text-burgundy sm:text-3xl">Certified Residential Appraiser · Central Utah</p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href="/contact/" class="btn">Request a Quote</a>
+        <a href={SITE.phoneHref} class="btn-outline">Call {SITE.phone}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap mt-20 grid gap-10 md:grid-cols-[1fr_2fr]">
+    <div>
+      <p class="eyebrow">About the work</p>
+      <h2 class="mt-3">Appraisals for Central Utah property</h2>
+    </div>
+    <div class="prose-plain text-ink/90">
+      <p>I'm Mike Price, a Certified Residential Appraiser based in Central Utah. I appraise homes, land, and rural property in Sanpete, Millard, Juab, and Sevier counties.</p>
+      <p>Rural property doesn't fit a city checklist. Wells, septic, access, outbuildings, and acreage all matter, and comparable sales can be few and far between. I know these towns and I do the legwork to support the number.</p>
+      <p>Lenders, AMCs, attorneys, and homeowners all order from me. Every report is independent and built to hold up to review.</p>
+    </div>
+  </section>
+
+  <section class="wrap mt-20">
+    <hr class="rule" />
+    <div class="mt-14 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+      <div>
+        <p class="eyebrow">Services</p>
+        <h2 class="mt-3">What I appraise</h2>
+      </div>
+      <a href="/services/" class="text-sm font-medium">See all services &rarr;</a>
+    </div>
+    <ul class="mt-10 grid gap-px border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((s) => (
+        <li class="bg-cream p-7">
+          <h3 class="text-2xl">{s.t}</h3>
+          <p class="mt-2 text-sm text-ink/80">{s.d}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap mt-20">
+    <hr class="rule" />
+    <div class="mt-14 grid gap-10 md:grid-cols-[1fr_2fr]">
+      <div>
+        <p class="eyebrow">Coverage</p>
+        <h2 class="mt-3">Four counties</h2>
+      </div>
+      <div>
+        <ul class="grid grid-cols-2 gap-x-8 gap-y-5">
+          <li><p class="font-serif text-2xl text-burgundy">Sanpete</p><p class="text-sm text-ink/75">Mount Pleasant, Ephraim, Manti</p></li>
+          <li><p class="font-serif text-2xl text-burgundy">Millard</p><p class="text-sm text-ink/75">Delta, Fillmore, Hinckley</p></li>
+          <li><p class="font-serif text-2xl text-burgundy">Juab</p><p class="text-sm text-ink/75">Nephi, Levan, Mona</p></li>
+          <li><p class="font-serif text-2xl text-burgundy">Sevier</p><p class="text-sm text-ink/75">Richfield, Salina, Monroe</p></li>
+        </ul>
+        <p class="mt-6 text-sm"><a href="/coverage/">Full coverage list &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <QuoteCta heading="Request a quote" />
+</Base>

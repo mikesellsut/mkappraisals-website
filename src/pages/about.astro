@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import QuoteCta from '../components/QuoteCta.astro';
+import { SITE } from '../site.js';
+---
+<Base
+  title="About Mike Price | Certified Residential Appraiser, MK Appraisals"
+  description="Mike Price is the owner of MK Appraisals and a Utah Certified Residential Appraiser serving Sanpete, Millard, Juab, and Sevier counties. MNAA. UTCAP President-Elect."
+>
+  <PageHead eyebrow="About" title="Mike Price" />
+
+  <section class="wrap mt-4 grid gap-12 md:grid-cols-[280px_1fr]">
+    <figure class="mx-auto w-full max-w-[280px] md:mx-0">
+      <div class="border border-burgundy/70 bg-white p-2">
+        <img src="/images/mike-price.jpg" alt="Mike Price, Certified Residential Appraiser" width="800" height="1000" class="block h-auto w-full" loading="eager" decoding="async" />
+      </div>
+    </figure>
+
+    <div>
+      <p class="font-serif text-2xl text-burgundy">Owner, MK Appraisals</p>
+      <ul class="mt-4 space-y-1 text-ink/90">
+        <li>Certified Residential Appraiser, State of Utah · Certification {SITE.license}</li>
+        <li>MNAA</li>
+        <li>President-Elect, <a href="https://www.utcap.org" rel="noopener" target="_blank">Utah Coalition of Appraisal Professionals (UTCAP)</a></li>
+      </ul>
+      <hr class="rule my-8" />
+      <div class="prose-plain text-ink/90">
+        <p>I live and work in Central Utah, and I appraise the kind of property found here: homes in town, cabins and acreage out in the county, land, and manufactured homes.</p>
+        <p>My job is to give an honest, supported opinion of value. I don't work for the buyer, the seller, or the loan officer. I work for a credible report.</p>
+        <p>I'm also active in the appraisal profession here in Utah through UTCAP, working on the issues that affect appraisers and the people who rely on them.</p>
+      </div>
+    </div>
+  </section>
+
+  <QuoteCta />
+</Base>
